@@ -24,7 +24,7 @@ import postRoutes from './routes/postRoutes.js';
 import { verifyToken } from './middleware/auth.js';
 
 //Connecting to database
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3011;
 connectDB();
 
 /* CONFIGURATIONS */

@@ -39,8 +39,8 @@ const Navbar = () => {
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  // const fullName = `${user.firstName} ${user.lastName}`;
-  const fullName = `Ashutosh Tewari`;
+  const fullName = `${user.firstName} ${user.lastName}`;
+  // const fullName = `Ashutosh Tewari`;    //for testing purposes
 
     return (
       <FlexBetween padding="1rem 6%" backgroundColor={alt}>   {/*pretty nice trick/feature. You are able to pass these things like padding etc. directly as props as this is a mui box not a simple div.*/}

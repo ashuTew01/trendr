@@ -15,6 +15,9 @@ function App() {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);  
   //memoization. Caching the value so that everytime dark or light mode is clicked the 
   //entire theme need not be sent again and again.
+
+  const isAuth = Boolean(useSelector((state) => state.token));    //CHANGE THIS LATER JUST A PLACEHOLDER!
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -22,8 +25,8 @@ function App() {
         <CssBaseline />   {/* reset css for material ui */}
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/profile/:id" element={<ProfilePage />} />
+            <Route path="/home" element={isAuth ? <HomePage /> : <Navigate to="/" /> } />
+            <Route path="/profile/:id" element={isAuth ? <ProfilePage /> : <Navigate to="/" /> } />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
