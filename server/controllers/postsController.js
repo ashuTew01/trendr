@@ -29,6 +29,7 @@ const createPost = async (req, res) => {
 }
 
 const getFeedPosts = async(req,res) => {
+    //Only getting friendsPosts code.
     try {
         const userId = req.params.userId;
         const user = await User.findById(userId);
@@ -48,6 +49,14 @@ const getFeedPosts = async(req,res) => {
     } catch (err) {
         res.status(404).json({message: err.message});
     }
+
+    //Getting all posts code.
+    // try {
+    //     const post = await Post.find();
+    //     res.status(200).json(post);
+    //   } catch (err) {
+    //     res.status(404).json({ message: err.message });
+    //   }
 }
 
 const getUserPosts = async(req,res) => {

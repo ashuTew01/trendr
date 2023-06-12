@@ -7,6 +7,7 @@ const router = express.Router();
 
 //Read
 router.get("/:userId", verifyToken, getFeedPosts);      // IMP
+// router.get("/", verifyToken, getFeedPosts);      
 router.get("/:userId/posts", verifyToken, getUserPosts);
 
 
