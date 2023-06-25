@@ -30,33 +30,33 @@ const createPost = async (req, res) => {
 
 const getFeedPosts = async(req,res) => {
     //Only getting friendsPosts code.
-    try {
-        const userId = req.params.userId;
-        const user = await User.findById(userId);
-        const friends = await Promise.all(
-          user.friends.map(async (id) => await User.findById(id))
-        );
-        const posts = [];
+    // try {
+    //     const userId = req.params.userId;
+    //     const user = await User.findById(userId);
+    //     const friends = await Promise.all(
+    //       user.friends.map(async (id) => await User.findById(id))
+    //     );
+    //     const posts = [];
         
-        for (const friend of friends) {
-          const friendPosts = await Post.find({ userId: friend._id })
-            .sort({ timestamp: -1 });
+    //     for (const friend of friends) {
+    //       const friendPosts = await Post.find({ userId: friend._id })
+    //         .sort({ timestamp: -1 });
             
-          posts.push(...friendPosts);
-        }
+    //       posts.push(...friendPosts);
+    //     }
         
-        res.status(200).json(posts);
-    } catch (err) {
-        res.status(404).json({message: err.message});
-    }
+    //     res.status(200).json(posts);
+    // } catch (err) {
+    //     res.status(404).json({message: err.message});
+    // }
 
     //Getting all posts code.
-    // try {
-    //     const post = await Post.find();
-    //     res.status(200).json(post);
-    //   } catch (err) {
-    //     res.status(404).json({ message: err.message });
-    //   }
+    try {
+        const post = await Post.find().sort({ timestamp: -1 });
+        res.status(200).json(post);
+      } catch (err) {
+        res.status(404).json({ message: err.message });
+      }
 }
 
 const getUserPosts = async(req,res) => {
