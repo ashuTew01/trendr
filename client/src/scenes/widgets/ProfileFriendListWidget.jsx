@@ -13,7 +13,7 @@ const ProfileFriendListWidget = ({ userId }) => {
 
   const getFriends = async () => {
     const response = await fetch(
-      `http://localhost:3010/users/${userId}/friends`,
+      `${process.env.REACT_APP_BASE_URL}/users/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
