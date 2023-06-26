@@ -24,8 +24,9 @@ function App() {
         <ThemeProvider theme={theme}>
         <CssBaseline />   {/* reset css for material ui */}
           <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/home" element={isAuth ? <HomePage /> : <Navigate to="/" /> } />
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/login" element={isAuth ? <Navigate to="/home" /> : <LoginPage />} />
+            <Route path="/home" element={isAuth ? <HomePage /> : <Navigate to="/login" /> } />
             <Route path="/profile/:userId" element={isAuth ? <ProfilePage /> : <Navigate to="/" /> } />
           </Routes>
         </ThemeProvider>
