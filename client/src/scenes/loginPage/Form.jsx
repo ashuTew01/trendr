@@ -61,7 +61,8 @@ const Form = () => {
         for(let value in values) {
             formData.append(value, values[value]);
         }
-        formData.append("picturePath", values.picture.name);
+        const picturePath_ = values.picture.name || "null.png";
+        formData.append("picturePath", picturePath_);
 
         const savedUserResponse = await fetch(
             `${process.env.REACT_APP_BASE_URL}/auth/register`,

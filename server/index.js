@@ -11,6 +11,7 @@ import connectDB from "./config/db.js";
 import { upload } from './middleware/upload.js';
 import { registerUser } from './controllers/authController.js';
 import { createPost } from './controllers/postsController.js';
+// import User from './models/User.js';
 const app = express();
 // import User from "./models/User.js"
 // import Post from "./models/Post.js"
@@ -38,6 +39,24 @@ app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, 'public/assets')));      //will change in production.
+
+
+// async function updateFriendsArray() {
+//     try {
+//       const users = await User.find();
+//       for (const user of users) {
+//         const uniqueFriends = [...new Set(user.friends)];
+//         user.friends = uniqueFriends;
+//         await user.save();
+//       }
+//       console.log('Friends array update complete.');
+//     } catch (error) {
+//       console.error('Error updating friends array:', error);
+//     }
+//   }
+  
+//   updateFriendsArray();
+
 
 
 // Routes with files
