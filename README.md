@@ -2,6 +2,9 @@
 
 Trendr is a full-stack social media application developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It allows users to create and interact with posts, connect with friends, and explore a social media experience.
 
+## Project Demo Video
+[Click here to watch the project demo video](https://drive.google.com/file/d/1cWvFBHCGvPEwVQcH9i4xAMxCppEzYeeg/view?usp=sharing)
+
 ## Technologies Used
 
 - MongoDB
